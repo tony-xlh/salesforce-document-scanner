@@ -1,7 +1,7 @@
 <template>
   <lightning-card title="Document Scanner">
     <div class="slds-var-m-around_medium">
-      <div lwc:if={IDCardURL}><img alt="ID Card" src={IDCardURL}/></div>
+      <div lwc:if={IDCardURL}><img alt="ID Card" src={imgDataURL}/></div>
       <div lwc:else>No ID Card</div>
       <lightning-button label={buttonLabel} onclick={toggleCamera}></lightning-button>
       <lightning-button lwc:if={cameraOpened} label="Capture and Upload" onclick={captureAndUpload}></lightning-button>

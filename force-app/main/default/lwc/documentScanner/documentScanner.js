@@ -7,13 +7,26 @@ export default class DocumentScanner extends LightningElement {
   @wire(getRecord, { recordId: "$recordId", fields })
   lead;
   @api cameraOpened = false;
+  @api imgDataURL = "";
   get buttonLabel() {
     const label = this.cameraOpened ? 'Close Camera' : 'Open Camera';
     return label;
   }
   get IDCardURL() {
-    return getFieldValue(this.lead.data, IDCard_FIELD);
+    const url = getFieldValue(this.lead.data, IDCard_FIELD);
+    if (url) {
+      this.getImg(url);
+    }
+    return url;
   }
+
+  async getImg(url){
+    //https://localhost:7158/api/document/1717467730853
+    let response = await fetch(url);
+    let base64 = await response.text();
+    this.imgDataURL = "data:image/jpeg;base64,"+base64;
+  }
+
   async connectedCallback() {
     await this.requestCameraPermission();
   }
