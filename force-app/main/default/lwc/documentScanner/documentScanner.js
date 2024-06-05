@@ -1,13 +1,16 @@
 import { LightningElement, api, wire } from "lwc";
 import { getRecord, getFieldValue } from "lightning/uiRecordApi";
-import Lead_OBJECT from '@salesforce/schema/Lead';
 import IDCard_FIELD from '@salesforce/schema/Lead.ID_Card__c';
 const fields = [IDCard_FIELD];
 export default class DocumentScanner extends LightningElement {
   @api recordId;
   @wire(getRecord, { recordId: "$recordId", fields })
   lead;
-
+  @api cameraOpened = false;
+  get buttonLabel() {
+    const label = this.cameraOpened ? 'Close Camera' : 'Open Camera';
+    return label;
+  }
   get IDCardURL() {
     return getFieldValue(this.lead.data, IDCard_FIELD);
   }
@@ -26,13 +29,20 @@ export default class DocumentScanner extends LightningElement {
     }
   }
   
-  async openCamera(){
-    const videoConstraints = {
-      video: true,
-      audio: false
-    };
-    const cameraStream = await navigator.mediaDevices.getUserMedia(videoConstraints);
-    this.template.querySelector("video").srcObject = cameraStream;
+  async toggleCamera(){
+    if (this.cameraOpened == false) {
+      const videoConstraints = {
+        video: true,
+        audio: false
+      };
+      const cameraStream = await navigator.mediaDevices.getUserMedia(videoConstraints);
+      this.template.querySelector("video").srcObject = cameraStream;
+      this.cameraOpened = true;
+    }else{
+      this.closeStream(this.template.querySelector("video").srcObject);
+      this.template.querySelector("video").srcObject = null;
+      this.cameraOpened = false;
+    }
   }
 
   closeStream(stream){
@@ -45,11 +55,7 @@ export default class DocumentScanner extends LightningElement {
     }
   }
 
-  capture(){
+  captureAndUpload(){
     console.log("capture");
-  }
-
-  upload(){
-    console.log("upload");
   }
 }

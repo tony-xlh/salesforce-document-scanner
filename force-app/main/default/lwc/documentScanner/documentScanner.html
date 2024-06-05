@@ -2,9 +2,8 @@
   <lightning-card title="Document Scanner">
     <div class="slds-var-m-around_medium">
       <div>ID Card URL: {IDCardURL}</div>
-      <lightning-button label="Open Camera" onclick={openCamera}></lightning-button>
-      <lightning-button label="Capture" onclick={capture}></lightning-button>
-      <lightning-button label="Upload" onclick={upload}></lightning-button>
+      <lightning-button label={buttonLabel} onclick={toggleCamera}></lightning-button>
+      <lightning-button lwc:if={cameraOpened} label="Capture and Upload" onclick={captureAndUpload}></lightning-button>
       <video id="video" muted autoplay="autoplay" playsinline="playsinline" webkit-playsinline></video>
     </div>
   </lightning-card>
