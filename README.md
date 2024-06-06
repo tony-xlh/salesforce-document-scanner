@@ -1,6 +1,14 @@
-# Salesforce DX Project: Next Steps
+# Document Scanner Salesforce DX Project
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+This is a demo document scanner project. It contains a lightning web component which opens the camera and captures documents. The captured document will be appended to a lead. 
+
+The document cropping and storing are done using this [server project](https://github.com/tony-xlh/Capture-Vision-Server-Demos/tree/main/Document-Normalizer/ASP.NET) based on [Dynamsoft Document Normalizer](https://www.dynamsoft.com/document-normalizer/docs/core/introduction/).
+
+
+
+https://github.com/xulihang/salesforce-document-scanner/assets/5462205/8987b157-b321-4ac0-977a-3688614655aa
+
+
 
 ## How Do You Plan to Deploy Your Changes?
 
