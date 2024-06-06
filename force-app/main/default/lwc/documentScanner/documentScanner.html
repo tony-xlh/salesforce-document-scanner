@@ -1,0 +1,26 @@
+<template>
+  <lightning-card title="Document Scanner">
+    <div class="slds-var-m-around_medium">
+      <div lwc:if={IDCardURL}><div>ID Card:</div><img alt="ID Card" src={imgDataURL}/></div>
+      <div lwc:else>No ID Card</div>
+      <lightning-button label={buttonLabel} onclick={toggleCamera}></lightning-button>
+      <br/>
+      <lightning-select
+          name="camera"
+          label="Camera:"
+          value={cameraID}
+          options={cameraOptions}
+          onchange={handleCameraChange}
+           ></lightning-select>
+      <lightning-select
+          name="resolution"
+          label="Resolution:"
+          value={resolution}
+          options={resolutionOptions}
+          onchange={handleResolutionChange}
+           ></lightning-select>
+      <lightning-button lwc:if={cameraOpened} label="Capture and Upload" onclick={captureAndUpload}></lightning-button>
+      <video id="video" muted autoplay="autoplay" playsinline="playsinline" webkit-playsinline></video>
+    </div>
+  </lightning-card>
+</template>
