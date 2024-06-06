@@ -4,6 +4,12 @@ This is a demo document scanner project. It contains a lightning web component w
 
 The document cropping and storing are done using this [server project](https://github.com/tony-xlh/Capture-Vision-Server-Demos/tree/main/Document-Normalizer/ASP.NET) based on [Dynamsoft Document Normalizer](https://www.dynamsoft.com/document-normalizer/docs/core/introduction/).
 
+
+
+https://github.com/xulihang/salesforce-document-scanner/assets/5462205/8987b157-b321-4ac0-977a-3688614655aa
+
+
+
 ## How Do You Plan to Deploy Your Changes?
 
 Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
