@@ -9,6 +9,9 @@ The document cropping and storing are done using this [server project](https://g
 https://github.com/xulihang/salesforce-document-scanner/assets/5462205/8987b157-b321-4ac0-977a-3688614655aa
 
 
+## Blog
+
+[How to Build a Lightning Web Component to Access Cameras in Salesforce](https://www.dynamsoft.com/codepool/camera-lightning-web-component-in-salesforce.html)
 
 ## How Do You Plan to Deploy Your Changes?
 
